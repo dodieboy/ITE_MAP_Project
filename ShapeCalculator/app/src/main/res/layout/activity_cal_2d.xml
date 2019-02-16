@@ -27,7 +27,7 @@
         android:background="@android:color/holo_blue_light"
         android:drawableRight="@drawable/arrow_right_small"
         android:onClick="btnSquareOnClick"
-        android:text="@string/square"
+        android:text="Square / Rectangle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />

@@ -37,8 +37,12 @@
         <activity
             android:name=".triangle"
             android:parentActivityName=".cal_2d" />
-        <activity android:name=".polygon"
+        <activity
+            android:name=".polygon"
             android:parentActivityName=".cal_2d" />
+        <activity
+            android:name=".cuboid"
+            android:parentActivityName=".cal_3d" />
     </application>
 
 </manifest>
