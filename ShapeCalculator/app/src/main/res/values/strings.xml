@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Shape Calculator</string>
+    <string name="square">Square / Rectangle</string>
+</resources>
