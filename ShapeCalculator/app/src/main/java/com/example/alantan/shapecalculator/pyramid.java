@@ -7,30 +7,33 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class cuboid extends AppCompatActivity {
+public class pyramid extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cuboid);
+        setContentView(R.layout.activity_pyramid);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Cuboid");
+        actionBar.setTitle("Pyramid");
     }
+
     public void btnCalculateOnClick(View v) {
-        double height, width, length, volume, area;
+        double height, sheight, width, length, volume, area;
         // do something when the button is clicked
         EditText txtLength = (EditText) findViewById(R.id.editTextLength);
         EditText txtWidth = (EditText) findViewById(R.id.editTextWidth);
         EditText txtHeight = (EditText) findViewById(R.id.editTextHeight);
+        EditText txtSHeight = (EditText) findViewById(R.id.editTextSHeight);
         TextView txtViewResult = (TextView) findViewById(R.id.textViewResult);
 
         height = Double.parseDouble(txtHeight.getText().toString());
+        sheight = Double.parseDouble(txtSHeight.getText().toString());
         width  = Double.parseDouble(txtWidth .getText().toString());
         length = Double.parseDouble(txtLength.getText().toString());
 
-        area = 2 * (length * width) + 2 * (length * height) + 2 * (width * height);
-        volume = length * width * height;
+        area = sheight * width + sheight * length + width * length;
+        volume = (length * width * height)/3;
 
         txtViewResult.setText("Surface Area: " + String.format("%.2f", area) + "\nVolume: " + String.format("%.2f", volume));
     }
