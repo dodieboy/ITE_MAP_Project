@@ -7,15 +7,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class triangle extends AppCompatActivity {
+public class polygon extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_triangle);
+        setContentView(R.layout.activity_polygon);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Triangle");
+        actionBar.setTitle("Polygon");
     }
     public void btnCalculateOnClick(View v) {
         double height, base, side, perimeter, area;
@@ -29,8 +29,8 @@ public class triangle extends AppCompatActivity {
         base = Double.parseDouble(txtBase.getText().toString());
         side = Double.parseDouble(txtSide.getText().toString());
 
-        perimeter = side + base + height;
-        area = (base * height) / 2;
+        perimeter = base * side;
+        area = ((base * height) / 2) * side;
 
         txtViewResult.setText("Perimeter: " + String.format("%.2f", perimeter) + "\nArea: " + String.format("%.2f", area));
     }

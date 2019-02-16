@@ -24,4 +24,6 @@ public class cal_2d extends AppCompatActivity {
     {
         startActivity(new Intent(cal_2d.this, cricle.class));
     }
+    public void btnTriangleOnClick(View v) { startActivity(new Intent(cal_2d.this, triangle.class)); }
+    public void btnPolygonOnClick(View v) { startActivity(new Intent(cal_2d.this, polygon.class)); }
 }

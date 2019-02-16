@@ -31,9 +31,13 @@
         <activity
             android:name=".square"
             android:parentActivityName=".cal_2d" />
-        <activity android:name=".cricle"
+        <activity
+            android:name=".cricle"
             android:parentActivityName=".cal_2d" />
-        <activity android:name=".triangle"
+        <activity
+            android:name=".triangle"
+            android:parentActivityName=".cal_2d" />
+        <activity android:name=".polygon"
             android:parentActivityName=".cal_2d" />
     </application>
 
