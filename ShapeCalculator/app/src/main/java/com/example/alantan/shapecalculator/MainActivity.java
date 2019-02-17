@@ -26,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         user.add("admin");
         pass.add("admin");
+
+        user.add("");
+        pass.add("");
     }
     public void btnRegistorOnClick(View v)
     {

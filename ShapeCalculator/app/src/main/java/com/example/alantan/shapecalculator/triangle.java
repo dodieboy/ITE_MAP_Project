@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class triangle extends AppCompatActivity {
 
@@ -25,13 +26,23 @@ public class triangle extends AppCompatActivity {
         EditText txtSide = (EditText) findViewById(R.id.editTextSide);
         TextView txtViewResult = (TextView) findViewById(R.id.textViewResult);
 
-        height = Double.parseDouble(txtHeight.getText().toString());
-        base = Double.parseDouble(txtBase.getText().toString());
-        side = Double.parseDouble(txtSide.getText().toString());
+        if(txtBase.getText().toString().matches("") || txtSide.getText().toString().matches("") || txtHeight.getText().toString().matches("")){
+            Toast.makeText(this, "Please fill in all value", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-        perimeter = side + base + height;
-        area = (base * height) / 2;
+        try {
+            height = Double.parseDouble(txtHeight.getText().toString());
+            base = Double.parseDouble(txtBase.getText().toString());
+            side = Double.parseDouble(txtSide.getText().toString());
 
-        txtViewResult.setText("Perimeter: " + String.format("%.2f", perimeter) + "\nArea: " + String.format("%.2f", area));
+            perimeter = side + base + height;
+            area = (base * height) / 2;
+
+            txtViewResult.setText("Perimeter: " + String.format("%.2f", perimeter) + "\nArea: " + String.format("%.2f", area));
+        }
+        catch (NumberFormatException e){
+            Toast.makeText(this, "Only number is allowed", Toast.LENGTH_SHORT).show();
+        }
     }
 }

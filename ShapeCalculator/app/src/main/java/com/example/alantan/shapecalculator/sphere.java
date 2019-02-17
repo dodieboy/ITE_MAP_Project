@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class sphere extends AppCompatActivity {
 
@@ -23,11 +24,21 @@ public class sphere extends AppCompatActivity {
         EditText txtRadius = (EditText) findViewById(R.id.editTextRadius);
         TextView txtViewResult = (TextView) findViewById(R.id.textViewResult);
 
-        radius = Double.parseDouble(txtRadius.getText().toString());
+        if(txtRadius.getText().toString().matches("")){
+            Toast.makeText(this, "Please fill in all value", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-        area = 4 * Math.PI * radius * radius;
-        volume = (Math.PI * radius * radius * radius) *4 / 3;
+        try {
+            radius = Double.parseDouble(txtRadius.getText().toString());
 
-        txtViewResult.setText("Surface Area: " + String.format("%.2f", area) + "\nVolume: " + String.format("%.2f", volume));
+            area = 4 * Math.PI * radius * radius;
+            volume = (Math.PI * radius * radius * radius) *4 / 3;
+
+            txtViewResult.setText("Surface Area: " + String.format("%.2f", area) + "\nVolume: " + String.format("%.2f", volume));
+        }
+        catch (NumberFormatException e){
+            Toast.makeText(this, "Only number is allowed", Toast.LENGTH_SHORT).show();
+        }
     }
 }

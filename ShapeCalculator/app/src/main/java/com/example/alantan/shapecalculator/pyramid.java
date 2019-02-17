@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class pyramid extends AppCompatActivity {
 
@@ -27,14 +28,24 @@ public class pyramid extends AppCompatActivity {
         EditText txtSHeight = (EditText) findViewById(R.id.editTextSHeight);
         TextView txtViewResult = (TextView) findViewById(R.id.textViewResult);
 
-        height = Double.parseDouble(txtHeight.getText().toString());
-        sheight = Double.parseDouble(txtSHeight.getText().toString());
-        width  = Double.parseDouble(txtWidth .getText().toString());
-        length = Double.parseDouble(txtLength.getText().toString());
+        if(txtLength.getText().toString().matches("") || txtWidth.getText().toString().matches("") || txtHeight.getText().toString().matches("") || txtSHeight.getText().toString().matches("")){
+            Toast.makeText(this, "Please fill in all value", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-        area = sheight * width + sheight * length + width * length;
-        volume = (length * width * height)/3;
+        try {
+            height = Double.parseDouble(txtHeight.getText().toString());
+            sheight = Double.parseDouble(txtSHeight.getText().toString());
+            width  = Double.parseDouble(txtWidth .getText().toString());
+            length = Double.parseDouble(txtLength.getText().toString());
 
-        txtViewResult.setText("Surface Area: " + String.format("%.2f", area) + "\nVolume: " + String.format("%.2f", volume));
+            area = sheight * width + sheight * length + width * length;
+            volume = (length * width * height)/3;
+
+            txtViewResult.setText("Surface Area: " + String.format("%.2f", area) + "\nVolume: " + String.format("%.2f", volume));
+        }
+        catch (NumberFormatException e){
+            Toast.makeText(this, "Only number is allowed", Toast.LENGTH_SHORT).show();
+        }
     }
 }

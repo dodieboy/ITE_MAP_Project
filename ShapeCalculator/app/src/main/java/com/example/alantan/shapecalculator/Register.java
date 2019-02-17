@@ -29,7 +29,7 @@ public class Register extends AppCompatActivity {
         password = txtPassword.getText().toString().toLowerCase();
 
         if(username.matches("") || password.matches("")){
-            Toast.makeText(this, "Incorrect Username or Password. Please enter correct Username and Password again!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Invalid Username or Password. Please enter correct Username and Password again!", Toast.LENGTH_SHORT).show();
         }
         else {
             for (int i = 0; i < MainActivity.user.size(); i++) {

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class cricle extends AppCompatActivity {
 
@@ -24,11 +25,21 @@ public class cricle extends AppCompatActivity {
         EditText txtRadius = (EditText) findViewById(R.id.editTextRadius);
         TextView txtViewResult = (TextView) findViewById(R.id.textViewResult);
 
-        radius = Double.parseDouble(txtRadius.getText().toString());
+        if(txtRadius.getText().toString().matches("")){
+            Toast.makeText(this, "Please fill in all value", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-        circumference = 2 * Math.PI * radius; area = Math.PI * radius * radius;
-        area = Math.PI * radius * radius;
+        try {
+            radius = Double.parseDouble(txtRadius.getText().toString());
 
-        txtViewResult.setText("circumference: " + String.format("%.2f", circumference) + "\nArea: " + String.format("%.2f", area));
+            circumference = 2 * Math.PI * radius;
+            area = Math.PI * radius * radius;
+
+            txtViewResult.setText("circumference: " + String.format("%.2f", circumference) + "\nArea: " + String.format("%.2f", area));
+        }
+        catch (NumberFormatException e){
+            Toast.makeText(this, "Only number is allowed", Toast.LENGTH_SHORT).show();
+        }
     }
 }

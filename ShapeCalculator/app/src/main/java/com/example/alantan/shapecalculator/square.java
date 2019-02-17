@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class square extends AppCompatActivity {
 
@@ -24,12 +25,21 @@ public class square extends AppCompatActivity {
         EditText txtWidth = (EditText) findViewById(R.id.editTextWidth);
         TextView txtViewResult = (TextView) findViewById(R.id.textViewResult);
 
-        length = Double.parseDouble(txtLength.getText().toString());
-        breadth = Double.parseDouble(txtWidth.getText().toString());
+        if(txtLength.getText().toString().matches("") || txtWidth.getText().toString().matches("")){
+            Toast.makeText(this, "Please fill in all value", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-        perimeter = length *2 + breadth * 2;
-        area = length * breadth;
+        try {
+            length = Double.parseDouble(txtLength.getText().toString());
+            breadth = Double.parseDouble(txtWidth.getText().toString());
+            perimeter = length * 2 + breadth * 2;
+            area = length * breadth;
 
-        txtViewResult.setText("Perimeter: " + String.format("%.2f", perimeter) + "\nArea: " + String.format("%.2f", area));
+            txtViewResult.setText("Perimeter: " + String.format("%.2f", perimeter) + "\nArea: " + String.format("%.2f", area));
+        }
+        catch (NumberFormatException e){
+            Toast.makeText(this, "Only number is allowed", Toast.LENGTH_SHORT).show();
+        }
     }
 }
