@@ -9,13 +9,23 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static String[] userArray = {"admin", "ite"};
+    public static String[] passwordArray = {"admin","123"};
+
+    public static ArrayList user = new ArrayList();
+    public static ArrayList pass = new ArrayList();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        user.add("admin");
+        pass.add("admin");
     }
     public void btnRegistorOnClick(View v)
     {
@@ -24,19 +34,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void btnLoginOnClick(View v)
     {
-
-        String[] userArray = {"admin", "ite"}; String[] passwordArray = {"admin","123"}; String username,
-            password;
-
+        String username, password;
         boolean successLogin = false;
 
-        EditText txtUsername = (EditText) findViewById(R.id.editTextUsername); EditText txtPassword = (EditText) findViewById(R.id.editTextPassword);
+        EditText txtUsername = (EditText) findViewById(R.id.editTextUsername);
+        EditText txtPassword = (EditText) findViewById(R.id.editTextPassword);
 
-        username = txtUsername.getText().toString(); password = txtPassword.getText().toString();
+        username = txtUsername.getText().toString();
+        password = txtPassword.getText().toString();
 
-        for (int i = 0; i < userArray.length; i++) {
-            if (username.equalsIgnoreCase(userArray[i]) &&
-                    password.equalsIgnoreCase(passwordArray[i]))
+        for (int i = 0; i < user.size(); i++) {
+            if (username.equalsIgnoreCase(user.get(i).toString()) && password.equalsIgnoreCase(pass.get(i).toString()))
             {
                 successLogin = true;
             }
@@ -51,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         else
         {
-            Toast.makeText(this, "Incorrect Username or Password. Please enter correct Username and Password again !", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Incorrect Username or Password. Please enter correct Username and Password again!", Toast.LENGTH_SHORT).show();
         }
     }
 
