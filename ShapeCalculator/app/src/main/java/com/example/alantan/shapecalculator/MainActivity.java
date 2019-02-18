@@ -13,9 +13,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static String[] userArray = {"admin", "ite"};
-    public static String[] passwordArray = {"admin","123"};
-
     public static ArrayList user = new ArrayList();
     public static ArrayList pass = new ArrayList();
 
@@ -26,9 +23,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         user.add("admin");
         pass.add("admin");
-
-        user.add("");
-        pass.add("");
     }
     public void btnRegistorOnClick(View v)
     {

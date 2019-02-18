@@ -37,23 +37,31 @@ public class pyramid extends AppCompatActivity {
             width  = Double.parseDouble(txtWidth .getText().toString());
             length = Double.parseDouble(txtLength.getText().toString());
             if(txtHeight.getText().toString().matches("")){
-                height = Double.parseDouble(txtHeight.getText().toString());
+                if(txtSHeight.getText().toString().matches("")) {
+                    Toast.makeText(this, "Please fill in all value", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else {
+                    sheight = Double.parseDouble(txtSHeight.getText().toString());
 
-                volume = (length * width * height)/3;
+                    area = sheight * width + sheight * length + width * length;
 
-                txtViewResult.setText("Surface Area: slant height needed\nVolume: " + String.format("%.2f", volume));
+                    txtViewResult.setText("Surface Area: " + String.format("%.2f", area) + "\nVolume: height needed");
+                }
             }
 
             else if(txtSHeight.getText().toString().matches("")){
-                sheight = Double.parseDouble(txtSHeight.getText().toString());
+                height = Double.parseDouble(txtHeight.getText().toString());
 
-                area = sheight * width + sheight * length + width * length;
+                area = (length * width) + length* Math.sqrt(Math.pow((width/2),2)+(height*height)) + width* Math.sqrt(Math.pow((length/2),2)+(height*height));
+                volume = (length * width * height) / 3;
 
-                txtViewResult.setText("Surface Area: " + String.format("%.2f", area) + "\nVolume: height needed");
+                txtViewResult.setText("Surface Area: " + String.format("%.2f", area) + "\nVolume: " + String.format("%.2f", volume));
             }
             else {
                 height = Double.parseDouble(txtHeight.getText().toString());
                 sheight = Double.parseDouble(txtSHeight.getText().toString());
+
                 area = sheight * width + sheight * length + width * length;
                 volume = (length * width * height)/3;
 
