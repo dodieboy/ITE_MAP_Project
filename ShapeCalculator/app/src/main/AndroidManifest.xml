@@ -19,8 +19,7 @@
         <activity
             android:name=".Register"
             android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".menu"/>
+        <activity android:name=".menu" />
         <activity
             android:name=".cal_2d"
             android:parentActivityName=".menu" />
@@ -47,6 +46,12 @@
             android:parentActivityName=".cal_3d" />
         <activity
             android:name=".pyramid"
+            android:parentActivityName=".cal_3d" />
+        <activity
+            android:name=".cone"
+            android:parentActivityName=".cal_3d" />
+        <activity
+            android:name=".cylinder"
             android:parentActivityName=".cal_3d" />
     </application>
 

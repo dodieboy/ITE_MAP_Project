@@ -19,4 +19,6 @@ public class cal_3d extends AppCompatActivity {
     public void btnCuboidOnClick(View v) { startActivity(new Intent(cal_3d.this, cuboid.class)); }
     public void btnSphereOnClick(View v) { startActivity(new Intent(cal_3d.this, sphere.class)); }
     public void btnPyramidOnClick(View v) { startActivity(new Intent(cal_3d.this, pyramid.class)); }
+    public void btnConeOnClick(View v) { startActivity(new Intent(cal_3d.this, cone.class)); }
+    public void btnCyliderOnClick(View v) { startActivity(new Intent(cal_3d.this, cylinder.class)); }
 }
