@@ -26,7 +26,7 @@ public class Register extends AppCompatActivity {
         EditText txtPassword = (EditText) findViewById(R.id.editTextPassword);
 
         username = txtUsername.getText().toString().toLowerCase();
-        password = txtPassword.getText().toString().toLowerCase();
+        password = txtPassword.getText().toString();
 
         if(username.matches("") || password.matches("")){
             Toast.makeText(this, "Invalid Username or Password. Please enter correct Username and Password again!", Toast.LENGTH_SHORT).show();

@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         password = txtPassword.getText().toString();
 
         for (int i = 0; i < user.size(); i++) {
-            if (username.equalsIgnoreCase(user.get(i).toString()) && password.equalsIgnoreCase(pass.get(i).toString()))
+            if (username.equalsIgnoreCase(user.get(i).toString()) && password.equals(pass.get(i).toString()))
             {
                 successLogin = true;
             }
