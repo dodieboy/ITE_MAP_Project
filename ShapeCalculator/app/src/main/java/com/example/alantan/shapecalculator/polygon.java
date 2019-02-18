@@ -26,20 +26,24 @@ public class polygon extends AppCompatActivity {
         EditText txtSide = (EditText) findViewById(R.id.editTextSide);
         TextView txtViewResult = (TextView) findViewById(R.id.textViewResult);
 
-        if(txtBase.getText().toString().matches("") || txtSide.getText().toString().matches("") || txtHeight.getText().toString().matches("")){
+        if(txtBase.getText().toString().matches("") || txtSide.getText().toString().matches("")){
             Toast.makeText(this, "Please fill in all value", Toast.LENGTH_SHORT).show();
             return;
         }
 
         try {
-            height = Double.parseDouble(txtHeight.getText().toString());
             base = Double.parseDouble(txtBase.getText().toString());
             side = Double.parseDouble(txtSide.getText().toString());
-
-            perimeter = base * side;
-            area = ((base * height) / 2) * side;
-
-            txtViewResult.setText("Perimeter: " + String.format("%.2f", perimeter) + "\nArea: " + String.format("%.2f", area));
+            if(txtHeight.getText().toString().matches("")){
+                perimeter = base * side;
+                txtViewResult.setText("Perimeter: " + String.format("%.2f", perimeter) + "\nArea: height is needed");
+            }
+            else {
+                height = Double.parseDouble(txtHeight.getText().toString());
+                perimeter = base * side;
+                area = ((base * height) / 2) * side;
+                txtViewResult.setText("Perimeter: " + String.format("%.2f", perimeter) + "\nArea: " + String.format("%.2f", area));
+            }
         }
         catch (NumberFormatException e){
             Toast.makeText(this, "Only number is allowed", Toast.LENGTH_SHORT).show();
