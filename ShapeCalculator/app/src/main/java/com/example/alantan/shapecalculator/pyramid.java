@@ -28,21 +28,37 @@ public class pyramid extends AppCompatActivity {
         EditText txtSHeight = (EditText) findViewById(R.id.editTextSHeight);
         TextView txtViewResult = (TextView) findViewById(R.id.textViewResult);
 
-        if(txtLength.getText().toString().matches("") || txtWidth.getText().toString().matches("") || txtHeight.getText().toString().matches("") || txtSHeight.getText().toString().matches("")){
+        if(txtLength.getText().toString().matches("") || txtWidth.getText().toString().matches("")){
             Toast.makeText(this, "Please fill in all value", Toast.LENGTH_SHORT).show();
             return;
         }
 
         try {
-            height = Double.parseDouble(txtHeight.getText().toString());
-            sheight = Double.parseDouble(txtSHeight.getText().toString());
             width  = Double.parseDouble(txtWidth .getText().toString());
             length = Double.parseDouble(txtLength.getText().toString());
+            if(txtHeight.getText().toString().matches("")){
+                height = Double.parseDouble(txtHeight.getText().toString());
 
-            area = sheight * width + sheight * length + width * length;
-            volume = (length * width * height)/3;
+                volume = (length * width * height)/3;
 
-            txtViewResult.setText("Surface Area: " + String.format("%.2f", area) + "\nVolume: " + String.format("%.2f", volume));
+                txtViewResult.setText("Surface Area: slant height needed\nVolume: " + String.format("%.2f", volume));
+            }
+
+            else if(txtSHeight.getText().toString().matches("")){
+                sheight = Double.parseDouble(txtSHeight.getText().toString());
+
+                area = sheight * width + sheight * length + width * length;
+
+                txtViewResult.setText("Surface Area: " + String.format("%.2f", area) + "\nVolume: height needed");
+            }
+            else {
+                height = Double.parseDouble(txtHeight.getText().toString());
+                sheight = Double.parseDouble(txtSHeight.getText().toString());
+                area = sheight * width + sheight * length + width * length;
+                volume = (length * width * height)/3;
+
+                txtViewResult.setText("Surface Area: " + String.format("%.2f", area) + "\nVolume: " + String.format("%.2f", volume));
+            }
         }
         catch (NumberFormatException e){
             Toast.makeText(this, "Only number is allowed", Toast.LENGTH_SHORT).show();
