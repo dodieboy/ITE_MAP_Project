@@ -20,7 +20,7 @@ public class polygon extends AppCompatActivity {
     }
     public void btnCalculateOnClick(View v) {
         double height, base, side, perimeter, area;
-        // do something when the button is clicked
+
         EditText txtHeight = (EditText) findViewById(R.id.editTextHeight);
         EditText txtBase = (EditText) findViewById(R.id.editTextBase);
         EditText txtSide = (EditText) findViewById(R.id.editTextSide);
@@ -30,7 +30,6 @@ public class polygon extends AppCompatActivity {
             Toast.makeText(this, "Please fill in all value", Toast.LENGTH_SHORT).show();
             return;
         }
-
         try {
             base = Double.parseDouble(txtBase.getText().toString());
             side = Double.parseDouble(txtSide.getText().toString());

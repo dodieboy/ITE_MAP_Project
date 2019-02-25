@@ -20,7 +20,7 @@ public class cuboid extends AppCompatActivity {
     }
     public void btnCalculateOnClick(View v) {
         double height, width, length, volume, area;
-        // do something when the button is clicked
+
         EditText txtLength = (EditText) findViewById(R.id.editTextLength);
         EditText txtWidth = (EditText) findViewById(R.id.editTextWidth);
         EditText txtHeight = (EditText) findViewById(R.id.editTextHeight);
@@ -30,7 +30,6 @@ public class cuboid extends AppCompatActivity {
             Toast.makeText(this, "Please fill in all value", Toast.LENGTH_SHORT).show();
             return;
         }
-
         try {
             height = Double.parseDouble(txtHeight.getText().toString());
             width  = Double.parseDouble(txtWidth .getText().toString());

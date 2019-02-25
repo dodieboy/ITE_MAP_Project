@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.VideoView;
 
 public class menu extends AppCompatActivity {
-
     private  VideoView VideoView2D;
     private  VideoView VideoView3D;
 
@@ -61,25 +60,21 @@ public class menu extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
-
     protected void logoutByBackKey() {
-
         AlertDialog alertbox = new AlertDialog.Builder(this)
-                .setMessage("Do you want to logout?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            .setMessage("Do you want to logout?")
+            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     // do something when the button is clicked
                     public void onClick(DialogInterface arg0, int arg1) {
-                        startActivity(new Intent(menu.this, MainActivity.class));
-                    }
-                })
-
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    // do something when the button is clicked
-                    public void onClick(DialogInterface arg0, int arg1) {
-                    }
-                })
-
-                .show();
+                    startActivity(new Intent(menu.this, MainActivity.class));
+            }
+            })
+            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                // do something when the button is clicked
+                public void onClick(DialogInterface arg0, int arg1) {
+                }
+            })
+            .show();
     }
     public void btn2dOnClick(View v)
     {

@@ -12,10 +12,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
     public static ArrayList user = new ArrayList();
     public static ArrayList pass = new ArrayList();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
     {
         startActivity(new Intent(MainActivity.this, Register.class));
     }
-
     public void btnLoginOnClick(View v)
     {
         String username, password;
@@ -46,20 +43,17 @@ public class MainActivity extends AppCompatActivity {
                 successLogin = true;
             }
         }
-
         if (successLogin == true)
         {
             startActivity(new Intent(MainActivity.this, menu.class));
             txtUsername.getText().clear();
             txtPassword.getText().clear();
         }
-
         else
         {
             Toast.makeText(this, "Incorrect Username or Password. Please enter correct Username and Password again!", Toast.LENGTH_SHORT).show();
         }
     }
-
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             exitByBackKey();
@@ -69,18 +63,18 @@ public class MainActivity extends AppCompatActivity {
     }
     protected void exitByBackKey() {
         AlertDialog alertbox = new AlertDialog.Builder(this)
-                .setMessage("Do you want to exit application?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    // do something when the button is clicked
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        finishAffinity(); // for API Level 16 and above
-                    }
-                })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    // do something when the button is clicked
-                    public void onClick(DialogInterface arg0, int arg1) {
-                    }
-                })
-                .show();
+            .setMessage("Do you want to exit application?")
+            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                // do something when the button is clicked
+                public void onClick(DialogInterface arg0, int arg1) {
+                finishAffinity(); // for API Level 16 and above
+            }
+            })
+            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                // do something when the button is clicked
+                public void onClick(DialogInterface arg0, int arg1) {
+                }
+            })
+            .show();
     }
 }

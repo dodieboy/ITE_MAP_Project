@@ -21,7 +21,7 @@ public class pyramid extends AppCompatActivity {
 
     public void btnCalculateOnClick(View v) {
         double height, sheight, width, length, volume, area;
-        // do something when the button is clicked
+
         EditText txtLength = (EditText) findViewById(R.id.editTextLength);
         EditText txtWidth = (EditText) findViewById(R.id.editTextWidth);
         EditText txtHeight = (EditText) findViewById(R.id.editTextHeight);
@@ -32,7 +32,6 @@ public class pyramid extends AppCompatActivity {
             Toast.makeText(this, "Please fill in all value", Toast.LENGTH_SHORT).show();
             return;
         }
-
         try {
             width  = Double.parseDouble(txtWidth .getText().toString());
             length = Double.parseDouble(txtLength.getText().toString());
@@ -49,7 +48,6 @@ public class pyramid extends AppCompatActivity {
                     txtViewResult.setText("Surface Area: " + String.format("%.2f", area) + "\nVolume: height needed");
                 }
             }
-
             else if(txtSHeight.getText().toString().matches("")){
                 height = Double.parseDouble(txtHeight.getText().toString());
 

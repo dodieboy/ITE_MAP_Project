@@ -20,7 +20,7 @@ public class sphere extends AppCompatActivity {
     }
     public void btnCalculateOnClick(View v) {
         double radius, volume, area;
-        // do something when the button is clicked
+
         EditText txtRadius = (EditText) findViewById(R.id.editTextRadius);
         TextView txtViewResult = (TextView) findViewById(R.id.textViewResult);
 
@@ -28,7 +28,6 @@ public class sphere extends AppCompatActivity {
             Toast.makeText(this, "Please fill in all value", Toast.LENGTH_SHORT).show();
             return;
         }
-
         try {
             radius = Double.parseDouble(txtRadius.getText().toString());
 

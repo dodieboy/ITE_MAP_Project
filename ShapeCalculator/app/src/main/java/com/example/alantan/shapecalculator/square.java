@@ -20,7 +20,7 @@ public class square extends AppCompatActivity {
     }
     public void btnCalculateOnClick(View v) {
         double length, breadth, perimeter, area;
-        // do something when the button is clicked
+
         EditText txtLength = (EditText) findViewById(R.id.editTextLength);
         EditText txtWidth = (EditText) findViewById(R.id.editTextWidth);
         TextView txtViewResult = (TextView) findViewById(R.id.textViewResult);
@@ -29,7 +29,6 @@ public class square extends AppCompatActivity {
             Toast.makeText(this, "Please fill in all value", Toast.LENGTH_SHORT).show();
             return;
         }
-
         try {
             length = Double.parseDouble(txtLength.getText().toString());
             breadth = Double.parseDouble(txtWidth.getText().toString());

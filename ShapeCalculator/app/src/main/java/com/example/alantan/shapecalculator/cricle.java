@@ -18,10 +18,9 @@ public class cricle extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Circle");
     }
-
     public void btnCalculateOnClick(View v) {
         double radius, circumference, area;
-        // do something when the button is clicked
+
         EditText txtRadius = (EditText) findViewById(R.id.editTextRadius);
         TextView txtViewResult = (TextView) findViewById(R.id.textViewResult);
 
@@ -29,7 +28,6 @@ public class cricle extends AppCompatActivity {
             Toast.makeText(this, "Please fill in all value", Toast.LENGTH_SHORT).show();
             return;
         }
-
         try {
             radius = Double.parseDouble(txtRadius.getText().toString());
 

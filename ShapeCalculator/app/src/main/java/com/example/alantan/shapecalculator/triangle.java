@@ -20,7 +20,7 @@ public class triangle extends AppCompatActivity {
     }
     public void btnCalculateOnClick(View v) {
         double height, base, side, perimeter, area;
-        // do something when the button is clicked
+
         EditText txtHeight = (EditText) findViewById(R.id.editTextHeight);
         EditText txtBase = (EditText) findViewById(R.id.editTextBase);
         EditText txtSide = (EditText) findViewById(R.id.editTextSide);
@@ -30,7 +30,6 @@ public class triangle extends AppCompatActivity {
             Toast.makeText(this, "Please fill in all value", Toast.LENGTH_SHORT).show();
             return;
         }
-
         try {
             base = Double.parseDouble(txtBase.getText().toString());
             height = Double.parseDouble(txtHeight.getText().toString());
@@ -48,10 +47,6 @@ public class triangle extends AppCompatActivity {
 
                 txtViewResult.setText("Perimeter: " + String.format("%.2f", perimeter) + "\nArea: " + String.format("%.2f", area));
             }
-
-
-
-
         }
         catch (NumberFormatException e){
             Toast.makeText(this, "Only number is allowed", Toast.LENGTH_SHORT).show();
